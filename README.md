@@ -1,7 +1,7 @@
 <div align=center>
 
 <h1>Denyard</h1>
-<p><b>Lanyard API, Socket wrapper for Deno</b></p>
+<p><b>Lanyard API wrapper for Deno - Supports REST & WebSocket</b></p>
 
 <img src="https://raw.githubusercontent.com/denolib/high-res-deno-logo/master/deno_hr_circle.svg" alt="Deno" style="width:200px;"/>
 
