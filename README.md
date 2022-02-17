@@ -15,6 +15,8 @@
 - Lightweight and easy to use
 - Made with ❤️ in TypeScript  
 
+Import with `https://deno.land/x/denyard/mod.ts` or `https://github.com/xHyroM/denyard/blob/master/mod.ts`
+
 Examples [here](./test/mod.ts)
 
 https://github.com/xHyroM/denyard/blob/38c4db0d7c89edf93a728ebb5023887353e12ebe/test/mod.ts#L1-L24
