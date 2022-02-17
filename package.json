@@ -5,6 +5,9 @@
   "main": "mod.ts",
   "author": "xHyroM",
   "license": "MIT",
+  "scripts": {
+    "changelog": "npx conventional-changelog -p angular -i CHANGELOG.md -s"
+  },
   "devDependencies": {
     "@octokit/action": "^3.18.0",
     "@typescript-eslint/eslint-plugin": "^5.12.0",
