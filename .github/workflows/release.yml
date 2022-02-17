@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - next
+      - master
 
 jobs:
   create_pr:
