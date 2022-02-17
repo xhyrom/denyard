@@ -78,7 +78,7 @@ export enum ActivityFlags {
  * From https://github.com/discordjs/discord-api-types/blob/main/payloads/v10/user.ts
  * https://discord.com/developers/docs/resources/user#user-object-user-flags
  */
- export enum UserFlags {
+export enum UserFlags {
 	/**
 	 * Discord Employee
 	 */

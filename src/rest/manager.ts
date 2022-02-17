@@ -4,15 +4,15 @@ export interface LanyardError {
 }
 
 export class Manager {
-    public static async get(route: string | Request | URL): Promise<any> {
-        return (async() => await new Promise((resolve, reject) => {
-            fetch(route)
-                .then(r => {
-                    resolve(r.json());
-                })
-                .catch(e => {
-                    reject(e);
-                })
-        }))();
-    }
+	public static async get(route: string | Request | URL): Promise<any> {
+		return (async() => await new Promise((resolve, reject) => {
+			fetch(route)
+				.then(r => {
+					resolve(r.json());
+				})
+				.catch(e => {
+					reject(e);
+				});
+		}))();
+	}
 }

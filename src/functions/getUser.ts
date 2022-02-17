@@ -5,7 +5,7 @@ import { Routes } from '../rest/routes.ts';
 export interface User {
     spotify: Spotify | null,
     listening_to_spotify: boolean,
-    kv: Object,
+    kv: Record<string, any>,
     discord_user: {
         username: string,
         public_flags: UserFlags,
@@ -21,7 +21,7 @@ export interface User {
 }
 
 export const getUser = async(id: Snowflake): Promise<User | LanyardError> => {
-    const data: any = await Manager.get(`${Routes.getRestApiUrl()}${Routes.getUser(id)}`);
+	const data: any = await Manager.get(`${Routes.getRestApiUrl()}${Routes.getUser(id)}`);
 
-    return data.data ?? data.error;
-}
+	return data.data ?? data.error;
+};

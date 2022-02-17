@@ -14,54 +14,54 @@ export interface Options {
 }
 
 export class WebSocket extends EventEmitter<Events> {
-    ws: StandardWebSocketClient | null;
-    subscribe: Array<Snowflake>;
+	ws: StandardWebSocketClient | null;
+	subscribe: Array<Snowflake>;
 
-    constructor(options: Options) {
-        super();
+	constructor(options: Options) {
+		super();
 
-        this.ws = null;
-        this.subscribe = options.subscribe;
+		this.ws = null;
+		this.subscribe = options.subscribe;
 
-        this.start();
-    }
+		this.start();
+	}
 
-    private start() {
-        this.ws = new StandardWebSocketClient(Routes.getRestWebsocketUrl());
+	private start() {
+		this.ws = new StandardWebSocketClient(Routes.getRestWebsocketUrl());
 
-        this.ws.on('open', () => {
-            console.log('otvorené');
+		this.ws.on('open', () => {
+			console.log('otvorené');
 
-            this.ws?.send(
-                JSON.stringify({
-                    op: 2,
-                    d: {
-                        subscribe_to_ids: this.subscribe,
-                    },
-                }),
-            );
+			this.ws?.send(
+				JSON.stringify({
+					op: 2,
+					d: {
+						subscribe_to_ids: this.subscribe,
+					},
+				}),
+			);
 
-            setInterval(() => {
-                this.sendHeartbeat();
-            }, 30000)
-        })
+			setInterval(() => {
+				this.sendHeartbeat();
+			}, 30000);
+		});
 
-        this.ws.on('message', (msg) => {
-            const data = JSON.parse(msg.data);
+		this.ws.on('message', (msg) => {
+			const data = JSON.parse(msg.data);
             
-            if (data.t === 'INIT_STATE') {
-                for (const [id, user] of Object.entries(data.d)) {
-                    this.emit('init', id, user as User);
-                }
-            } else if (data.t === 'PRESENCE_UPDATE') {
-                this.emit('update', data.d as User)
-            }
-        })
-    }
+			if (data.t === 'INIT_STATE') {
+				for (const [id, user] of Object.entries(data.d)) {
+					this.emit('init', id, user as User);
+				}
+			} else if (data.t === 'PRESENCE_UPDATE') {
+				this.emit('update', data.d as User);
+			}
+		});
+	}
 
-    private sendHeartbeat() {
-        this.ws?.send(JSON.stringify({
-            op: 3
-        }))
-    }
+	private sendHeartbeat() {
+		this.ws?.send(JSON.stringify({
+			op: 3
+		}));
+	}
 }
