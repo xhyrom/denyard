@@ -17,4 +17,4 @@
 
 Examples [here](./test/mod.ts)
 
-https://github.com/xHyroM/denyard/blob/6e80cfc0dfdd796c1355adf8cba034d391f72e3c/test/mod.ts#L1-L22
+https://github.com/xHyroM/denyard/blob/38c4db0d7c89edf93a728ebb5023887353e12ebe/test/mod.ts#L1-L24
