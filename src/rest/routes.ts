@@ -9,7 +9,11 @@ export class Routes {
 		return 'wss://api.lanyard.rest/socket';
 	}
 
-	public static getUser(id: Snowflake) {
-		return `/users/${id}`;
+	public static getUser(userId: Snowflake) {
+		return `/users/${userId}`;
+	}
+
+	public static getKv(userId: Snowflake, key: string) {
+		return `/users/${userId}/kv/${key}`
 	}
 }
