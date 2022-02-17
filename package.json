@@ -1,5 +1,5 @@
 {
-  "name": "danyard",
+  "name": "denyard",
   "version": "0.1.0",
   "description": "Lanyard wrapper for deno",
   "main": "mod.ts",

@@ -1,6 +1,7 @@
 import { getUser, isError, WebSocket as LanyardWSClient } from '../mod.ts';
 
 (async() => {
+    // API
     const user = await getUser('525316393768452098');
     if (!isError(user)) {
         console.log(user.discord_user);
@@ -8,6 +9,7 @@ import { getUser, isError, WebSocket as LanyardWSClient } from '../mod.ts';
         console.log(user.code, user.message);
     }
 
+    // Socket
     const ws = new LanyardWSClient({
         subscribe: [ '525316393768452098' ]
     });
