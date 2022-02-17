@@ -9,7 +9,6 @@ jobs:
     strategy:
       matrix:
         node: ['16', '17']
-        deno: [1.18.2]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -24,24 +23,3 @@ jobs:
 
       - name: Run ESLint
         run: npx eslint .
-
-  package:
-    name: Package
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: ['16', '17']
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Setup Deno
-        uses: denolib/setup-deno@master
-        with:
-          deno-version: ${{ matrix.deno }}
-
-      - name: Print deno version
-        run: deno --version
-
-      - name: Check format
-        run: deno fmt --check **/*.ts
